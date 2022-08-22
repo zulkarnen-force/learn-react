@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    
+    <div id="root"></div>
+
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script
+src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+<script>
+// Pure React and JavaScript code
+// const lists = React.createElement(
+//     'ul',
+//     {id: 'recipe-01'},
+//     React.createElement('li', null, '2 lb Salmin'),
+//     React.createElement('li', null, '5 springs fresh rosemary'), 
+//     React.createElement('li', null, '2 tabelspoons olive oil'), 
+//     React.createElement('li', null, '2 small spons'), 
+// );
+// 
+// const items = [
+// "2 lb salmons",
+// "5 springs fresh rosemary",
+// "2 tablespoons olive oil",
+// "2 small spons"
+// ]
+
+// const itemElements = React.createElement(
+//     'ul',
+//    {className: 'ingredients'}, 
+//     items.map((ingredient, i) => React.createElement('li', {key: i}, ingredient))
+// )
+
+const secretIngredients = [
+    '1 cup unsalted butter',
+    '1 cruncy peanut butter',
+    '1 brown sugar',
+]
+
+// function IngredientsList({items}) {
+//     return React.createElement(
+//         'ul',
+//         {className: 'ingredients'},
+//         items.map( (item, i) => React.createElement('li', {key: i}, item))
+//     )
+// }
+
+function IngredientsList(props) {
+    return React.createElement(
+        'ul',
+        {className: 'ingredients'},
+        props.items.map( (item, i) => React.createElement('li', {key: i}, item))
+    )
+}
+
+
+
+ReactDOM.render(
+    React.createElement(IngredientsList, {items: secretIngredients}, null),
+    document.getElementById('root'),
+)
+
+
+</script>
+
+</body>
+</html>
